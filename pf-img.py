@@ -13,7 +13,7 @@ while 1:
     os.mkdir('./pf-img')
     r = requests.get('http://api.petfinder.com/pet.find',params=PARMS)
     if r.status_code != 200:
-        continue:
+        continue
     for pet in json.loads(r.text)['petfinder']['pets']['pet']:
         pet_name = re.sub(r'[^a-zA-Z0-9 ]', '', pet['name']['$t'])
         pet_id = pet['id']['$t']
